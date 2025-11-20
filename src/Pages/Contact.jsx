@@ -6,7 +6,7 @@ const Contact = () => {
       <div className="relative w-full min-h-[70vh] mt-16 sm:mt-20">
         <img
           className="w-full h-110 object-cover"
-          src="/src/assets/julian-hochgesang-Dkn8-zPIbwo-unsplash.jpg"
+          src="/public/images/julian-hochgesang-Dkn8-zPIbwo-unsplash.jpg"
           alt="law background"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-transparent"></div>
@@ -15,14 +15,10 @@ const Contact = () => {
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 drop-shadow-lg">
             Contact us
           </h1>
-          <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center"><span class="text-2xl font-bold">AA</span>
           <p className="text-base sm:text-lg md:text-xl max-w-4xl drop-shadow-md">
             Get in touch with our legal experts. We're here to help you with all your legal <br />needs and questions.
           </p>
         </div>
-      </div>
-      <div>
-      </div>
       </div>
       {/* Left Form Card */}
       <div className="flex flex-col lg:flex-row justify-between p-10 gap-8 mx-4 sm:mx-10 mb-10 text-center">

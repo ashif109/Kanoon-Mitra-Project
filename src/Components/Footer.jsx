@@ -9,7 +9,7 @@ const Footer = () => {
                         <a href="/">
                             <img
                                 className="w-16 h-16 object-contain rounded-full"
-                                src="/src/assets/Gemini_Generated_Image_vtl42pvtl42pvtl4-removebg-preview.png"
+                                src="/public/images/Gemini_Generated_Image_vtl42pvtl42pvtl4-removebg-preview.png"
                                 alt="Kanoon Mitra Logo"
                             />
                         </a>

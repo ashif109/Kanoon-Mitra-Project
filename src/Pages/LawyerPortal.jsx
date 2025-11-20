@@ -9,7 +9,7 @@ const LawyerPortal = () => {
       <div className="relative w-full min-h-[70vh] mt-16 sm:mt-20">
         <img
           className="w-full h-110 object-cover"
-          src="/src/assets/—Pngtree—lawyer signing legal documents with_16388702.jpg"
+          src="/public/images/—Pngtree—lawyer signing legal documents with_16388702.jpg"
           alt="law background"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-transparent"></div>

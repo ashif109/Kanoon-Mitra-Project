@@ -7,7 +7,7 @@ const AskLawyer = () => {
       <div className="relative w-full min-h-[70vh] mt-16 sm:mt-20">
         <img
           className="w-full h-120 object-cover"
-          src="/src/assets/low-key-filter-law-bookshelf-with-wooden-judge-s-gavel-golden-scale_34259-438 (1).jpg"
+          src="/public/images/low-key-filter-law-bookshelf-with-wooden-judge-s-gavel-golden-scale_34259-438 (1).jpg"
           alt="img"
         />
 

@@ -103,7 +103,7 @@ const Services = () => {
             <div className=" relative w-full min-h-[70vh] mt-16 sm:mt-20">
                 <img
                     className="w-full h-120 object-cover"
-                    src="/src/assets/lawyers-handshake-agreement.jpg"
+                    src="/public/images/lawyers-handshake-agreement.jpg"
                     alt="img"
                 />
 
