@@ -18,7 +18,7 @@ const Navbarr = () => {
           <Link to="/" onClick={handleLinkClick}>
             <img
               className="w-14 h-14 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain rounded-full"
-              src="/public/images/Gemini_Generated_Image_vtl42pvtl42pvtl4-removebg-preview.png"
+              src="/images/Gemini_Generated_Image_vtl42pvtl42pvtl4-removebg-preview.png"
               alt="Kanoon Mitra Logo"
             />
           </Link>

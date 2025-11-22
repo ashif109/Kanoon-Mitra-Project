@@ -343,7 +343,7 @@ const Dashboard = () => {
         <div className="w-full aspect-[16/9] sm:aspect-[4/3] md:aspect-[21/9] lg:aspect-[16/6] overflow-hidden">
           <img
             className="w-full h-full object-cover"
-            src="/public/images/5321305.jpg"
+            src="/images/5321305.jpg"
             alt="law background"
           />
         </div>
@@ -356,7 +356,7 @@ const Dashboard = () => {
             <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden">
               <img
                 className="w-full h-full object-cover rounded-full"
-                src="/public/images/Profile pic.jpeg"
+                src="/images/Profile pic.jpeg"
                 alt="Profile"
               />
             </div>

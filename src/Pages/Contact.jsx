@@ -6,7 +6,7 @@ const Contact = () => {
       <div className="relative w-full min-h-[70vh] mt-16 sm:mt-20">
         <img
           className="w-full h-110 object-cover"
-          src="/public/images/julian-hochgesang-Dkn8-zPIbwo-unsplash.jpg"
+          src="/images/julian-hochgesang-Dkn8-zPIbwo-unsplash.jpg"
           alt="law background"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-transparent"></div>

@@ -112,7 +112,7 @@ const KnowledgeHub = () => {
       <div className="relative w-full min-h-[70vh] mt-16 sm:mt-20">
         <img
           className="w-full h-120 object-cover"
-          src="/public/images/open-book-beautiful-setting.jpg"
+          src="/images/open-book-beautiful-setting.jpg"
           alt="law background"
         />
 
