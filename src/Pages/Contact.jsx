@@ -99,7 +99,7 @@ const Contact = () => {
   </MapContainer>
 </div>
 <br />
-<div className="shadow-2xl rounded-lg text-center h-70">
+<div className="shadow-2xl rounded-lg text-center h-auto">
   <h1 className="text-3xl text-black font-semibold text-center p-4">Frequently Asked Questions</h1>
   <div className="flex justify-between">
 <div className="text-left w-50% p-3">
