@@ -82,20 +82,9 @@ const Navbarr = () => {
 
             <Link to="/Dashboard" onClick={handleLinkClick}>
               <button className="bg-orange-500 hover:bg-orange-700 text-black px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg transition text-sm md:text-base w-full md:w-auto">
-<<<<<<< HEAD
                 Get Started
               </button>
             </Link>
-               {/* <Link to="/Dashboard" onClick={handleLinkClick}>
-              <button className="bg-orange-500 hover:bg-orange-700 text-black px-3 py-1.5 sm:px-4 sm:py-2 rounded-lg transition text-sm md:text-base w-full md:w-auto">
-                Dashboard
-              </button>
-            </Link> */}
-=======
-                Dashboard
-              </button>
-            </Link>
->>>>>>> 329acda15b55fc1ff2b915c19aed00ee9a4671cf
           </div>
 
         </div>
