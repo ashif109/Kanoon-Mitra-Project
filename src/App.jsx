@@ -10,6 +10,7 @@ import Contact from './Pages/Contact'
 import AskLawyer from './Pages/AskLawyer'
 import KnowledgeHub from './Pages/KnowledgeHub'
 import LawyerPortal from "./Pages/LawyerPortal";
+<<<<<<< HEAD
 import Dashboard from './Pages/Dashboard'
 
 // Service Detail Pages
@@ -19,6 +20,10 @@ import LawyerConnectPage from './Pages/services/LawyerConnectPage'
 import RtiPage from './Pages/services/RtiPage'
 import CyberComplaintPage from './Pages/services/CyberComplaintPage'
 import LegalDocsPage from './Pages/services/LegalDocsPage'
+=======
+
+import Dashboard from './Pages/Dashboard'
+>>>>>>> 329acda15b55fc1ff2b915c19aed00ee9a4671cf
 
 const App = () => {
   return (
@@ -34,6 +39,7 @@ const App = () => {
         <Route path='/LawyerPortal' element={<LawyerPortal />} />
         <Route path='/Dashboard' element={<Dashboard />} />
 
+<<<<<<< HEAD
         {/* Individual Service Detail Routes */}
         <Route path='/services/legal-consultation' element={<LegalConsultationPage />} />
         <Route path='/services/fir-guidance' element={<Firpage />} />
@@ -41,6 +47,8 @@ const App = () => {
         <Route path='/services/rti-filing' element={<RtiPage />} />
         <Route path='/services/cyber-complaint' element={<CyberComplaintPage />} />
         <Route path='/services/free-legal-docs' element={<LegalDocsPage />} />
+=======
+>>>>>>> 329acda15b55fc1ff2b915c19aed00ee9a4671cf
       </Routes>
 
       <Footer />
