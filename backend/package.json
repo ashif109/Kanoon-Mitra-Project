@@ -1,0 +1,29 @@
+{
+  "name": "kanoon-mitra",
+  "version": "0.0.1",
+  "description": "building fully scalable platform",
+  "homepage": "https://github.com/ashif109/Kanoon-Mitra-Project#readme",
+  "bugs": {
+    "url": "https://github.com/ashif109/Kanoon-Mitra-Project/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashif109/Kanoon-Mitra-Project.git"
+  },
+  "license": "ISC",
+  "author": "Ashif Ansari",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.5.0",
+    "morgan": "^1.11.0",
+    "nodemon": "^3.1.14"
+  }
+}
