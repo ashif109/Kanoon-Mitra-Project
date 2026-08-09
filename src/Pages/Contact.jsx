@@ -22,7 +22,7 @@ const Contact = () => {
       alert("Please fill in your Full Name, Email Address, and Message.");
       return;
     }
-    let response = await fetch("${API_BASE_URL}/Contact", {
+    let response = await fetch(`${API_BASE_URL}/Contact`, {
       credentials:"include", 
       method:"POST", 
       headers: {

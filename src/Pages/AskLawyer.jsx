@@ -37,7 +37,7 @@ serviceType:"ASK_LAWYERS",
       return;
     }
 
-    const response = await fetch("${API_BASE_URL}/AskLawyer", {
+    const response = await fetch(`${API_BASE_URL}/AskLawyer`, {
       credentials: "include",
       method: "POST",
       headers: {

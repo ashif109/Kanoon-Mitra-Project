@@ -37,7 +37,7 @@ const SignIn = () => {
       return;
     }
     try {
-      let response = await fetch("${API_BASE_URL}/sign-in", {
+      let response = await fetch(`${API_BASE_URL}/sign-in`, {
         credentials: "include",
         headers: {
           "Content-Type": "application/json",

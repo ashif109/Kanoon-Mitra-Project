@@ -98,7 +98,7 @@ const Firpage = () => {
     };
 
     try {
-      const response = await fetch("${API_BASE_URL}/services/fir-guidance", {
+      const response = await fetch(`${API_BASE_URL}/services/fir-guidance`, {
         credentials: "include",
         method: "POST",
         headers: {

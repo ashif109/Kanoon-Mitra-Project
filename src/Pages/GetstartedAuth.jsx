@@ -22,7 +22,7 @@ const GetstartedAuth = () => {
       return;
     }
     try{
-      let response = await fetch("${API_BASE_URL}/user-login", {
+      let response = await fetch(`${API_BASE_URL}/user-login`, {
            method: "POST",
         credentials: "include",
         headers: {

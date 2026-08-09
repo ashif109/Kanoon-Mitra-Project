@@ -82,7 +82,7 @@ const LawyerDashboard = () => {
         const headers = { "Content-Type": "application/json" };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        await fetch("${API_BASE_URL}/lawyer/profile", {
+        await fetch(`${API_BASE_URL}/lawyer/profile`, {
           method: "PUT",
           credentials: "include",
           headers,
@@ -128,7 +128,7 @@ const LawyerDashboard = () => {
         headers["Authorization"] = `Bearer ${token}`;
       }
 
-      const response = await fetch("${API_BASE_URL}/lawyer/profile", {
+      const response = await fetch(`${API_BASE_URL}/lawyer/profile`, {
         credentials: "include",
         headers: headers,
       });
@@ -191,7 +191,7 @@ const LawyerDashboard = () => {
         headers["Authorization"] = `Bearer ${token}`;
       }
 
-      const response = await fetch("${API_BASE_URL}/lawyer/queries", {
+      const response = await fetch(`${API_BASE_URL}/lawyer/queries`, {
         credentials: "include",
         headers: headers,
       });
@@ -222,7 +222,7 @@ const LawyerDashboard = () => {
       const headers = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      await fetch("${API_BASE_URL}/lawyer/profile", {
+      await fetch(`${API_BASE_URL}/lawyer/profile`, {
         method: "PUT",
         credentials: "include",
         headers,
@@ -390,7 +390,7 @@ const LawyerDashboard = () => {
       const headers = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      const res = await fetch("${API_BASE_URL}/lawyer/profile", {
+      const res = await fetch(`${API_BASE_URL}/lawyer/profile`, {
         method: "PUT",
         credentials: "include",
         headers,

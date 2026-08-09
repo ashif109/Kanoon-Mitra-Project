@@ -29,7 +29,7 @@ const LawyerConnectPage = () => {
 
   const getdata = async () => {
     try {
-      const response = await fetch("${API_BASE_URL}/services/lawyer-connect", {
+      const response = await fetch(`${API_BASE_URL}/services/lawyer-connect`, {
         credentials: "include",
         headers: {
           "Content-Type": "application/json",

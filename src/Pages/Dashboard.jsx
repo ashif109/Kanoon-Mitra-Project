@@ -84,7 +84,7 @@ const Dashboard = () => {
       if (token) {
         headers["Authorization"] = `Bearer ${token}`;
       }
-      const response = await fetch("${API_BASE_URL}/Dashboard", {
+      const response = await fetch(`${API_BASE_URL}/Dashboard`, {
         credentials: "include",
         headers: headers,
       });
@@ -112,7 +112,7 @@ const Dashboard = () => {
       const headers = {};
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      const response = await fetch("${API_BASE_URL}/profile", {
+      const response = await fetch(`${API_BASE_URL}/profile`, {
         credentials: "include",
         headers,
       });
@@ -143,7 +143,7 @@ const Dashboard = () => {
       const headers = {};
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      const response = await fetch("${API_BASE_URL}/user/documents", {
+      const response = await fetch(`${API_BASE_URL}/user/documents`, {
         credentials: "include",
         headers,
       });
@@ -174,7 +174,7 @@ const Dashboard = () => {
         const headers = { "Content-Type": "application/json" };
         if (token) headers["Authorization"] = `Bearer ${token}`;
 
-        const res = await fetch("${API_BASE_URL}/profile", {
+        const res = await fetch(`${API_BASE_URL}/profile`, {
           method: "PUT",
           credentials: "include",
           headers,
@@ -203,7 +203,7 @@ const Dashboard = () => {
       const headers = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      const res = await fetch("${API_BASE_URL}/profile", {
+      const res = await fetch(`${API_BASE_URL}/profile`, {
         method: "PUT",
         credentials: "include",
         headers,
@@ -246,7 +246,7 @@ const Dashboard = () => {
       const headers = { "Content-Type": "application/json" };
       if (token) headers["Authorization"] = `Bearer ${token}`;
 
-      const res = await fetch("${API_BASE_URL}/user/documents", {
+      const res = await fetch(`${API_BASE_URL}/user/documents`, {
         method: "POST",
         credentials: "include",
         headers,

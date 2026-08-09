@@ -132,7 +132,7 @@ const RtiPage = () => {
     };
 
     try {
-      const response = await fetch("${API_BASE_URL}/services/rti-filing", {
+      const response = await fetch(`${API_BASE_URL}/services/rti-filing`, {
         credentials: "include",
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -179,7 +179,7 @@ const RtiPage = () => {
     };
 
     try {
-      const response = await fetch("${API_BASE_URL}/services/rti-filing", {
+      const response = await fetch(`${API_BASE_URL}/services/rti-filing`, {
         credentials: "include",
         method: "POST",
         headers: { "Content-Type": "application/json" },
