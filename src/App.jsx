@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './context/AuthContext'
 import { AppProvider } from './context/AppContext'
 
@@ -64,6 +64,9 @@ const App = () => {
             <Route path='/services/rti-filing' element={<RtiPage />} />
             <Route path='/services/cyber-complaint' element={<CyberComplaintPage />} />
             <Route path='/services/free-legal-docs' element={<LegalDocsPage />} />
+
+            {/* Fallback route for unknown paths */}
+            <Route path='*' element={<Navigate to='/' replace />} />
           </Routes>
 
           <Footer />
