@@ -1,15 +1,23 @@
 import React, { useState } from "react";
+import { API_BASE_URL } from "../config/api";
 
 const AskLawyer = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
+    
+serviceType:"ASK_LAWYERS",
     fullName: "",
     email: "",
     phone: "",
-    category: "Family Law",
-    subject: "",
-    description: "",
-    urgency: "medium",
+    category: "",
+    title: "",
+    question: "",
+    answer:"",
+    status:"pending",
+    lawyerId: null,
+    lawyerName: null,
+    urgency: "",
+    fee:"0"
   });
 
   // Chat state
@@ -18,17 +26,28 @@ const AskLawyer = () => {
   ]);
   const [chatInput, setChatInput] = useState("");
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+   const handleInputChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.email || !formData.description) {
-      alert("Please fill in Full Name, Email, and Detailed Description.");
+    if (!formData.fullName || !formData.email || !formData.question) {
+      alert("Please fill in Full Name, Email, and Detailed question.");
       return;
     }
+
+    const response = await fetch("${API_BASE_URL}/AskLawyer", {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+    const result = await response.json();
+    if (result) console.log("question-submitted...");
+
     setFormSubmitted(true);
   };
 
@@ -55,9 +74,9 @@ const AskLawyer = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Section */}
-      <div className="relative w-full min-h-[65vh] mt-16 sm:mt-20 overflow-hidden">
+      <div className="relative w-full min-h-[50vh] sm:min-h-[60vh] mt-16 sm:mt-20 overflow-hidden">
         <img
-          className="w-full h-120 object-cover"
+          className="w-full h-[420px] sm:h-[480px] object-cover"
           src="/images/low-key-filter-law-bookshelf-with-wooden-judge-s-gavel-golden-scale_34259-438 (1).jpg"
           alt="Ask a Lawyer"
           onError={(e) => {
@@ -166,8 +185,8 @@ const AskLawyer = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Subject *</label>
                   <input
                     type="text"
-                    name="subject"
-                    value={formData.subject}
+                    name="title"
+                    value={formData.title}
                     onChange={handleInputChange}
                     placeholder="Brief subject of your legal question"
                     className="w-full border border-gray-300 p-2.5 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none"
@@ -179,8 +198,8 @@ const AskLawyer = () => {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Detailed Description *</label>
                   <textarea
                     rows="4"
-                    name="description"
-                    value={formData.description}
+                    name="question"
+                    value={formData.question}
                     onChange={handleInputChange}
                     placeholder="Please provide detailed information about your legal issue..."
                     className="w-full border border-gray-300 p-2.5 rounded-lg text-sm focus:ring-2 focus:ring-blue-600 focus:outline-none"
@@ -330,3 +349,4 @@ const AskLawyer = () => {
 };
 
 export default AskLawyer;
+

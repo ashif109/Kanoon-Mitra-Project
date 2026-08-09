@@ -1,25 +1,32 @@
+import dns from "node:dns";
+import process from "node:process";
+
+
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
+
 import { MongoClient } from "mongodb";
 
 const dbname = "kanoon-main";
 export const collectiondb = "data";
 
-let cachedClient = null;
-let cachedDb = null;
+let client;
+let db;
 
-export const connection = async () => {
-  const url =
-    "mongodb+srv://ashifansari04704_db_user:nLndv2OpwOu4nk5S@project1.6bnf3vi.mongodb.net/?appName=project1";
+export async function connection() {
+  if (db) return db;
 
-  if (!url) {
-    throw new Error(
-      "MONGODB_URL environment variable is missing",
-    );
-  }
-  if (cachedDb) return cachedDb;
-  if (!cachedClient) {
-    cachedClient = new MongoClient(url);
-    await cachedClient.connect();
-  }
-  cachedDb = cachedClient.db(dbname);
-  return cachedDb;
-};
+  const url = process.env.MONGODB_URL;
+    
+
+  client = new MongoClient(url, {
+    serverSelectionTimeoutMS: 10000,
+  });
+
+  await client.connect();
+
+  db = client.db(dbname);
+
+  console.log("✅ MongoDB Connected");
+
+  return db;
+}

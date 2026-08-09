@@ -124,9 +124,9 @@ const Services = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Header Banner */}
-      <div className="relative w-full min-h-[65vh] mt-16 sm:mt-20 overflow-hidden">
+      <div className="relative w-full min-h-[50vh] sm:min-h-[60vh] mt-16 sm:mt-20 overflow-hidden">
         <img
-          className="w-full h-110 object-cover"
+          className="w-full h-[400px] sm:h-[460px] object-cover"
           src="/images/low-key-filter-law-bookshelf-with-wooden-judge-s-gavel-golden-scale_34259-438 (1).jpg"
           alt="Services"
           onError={(e) => {

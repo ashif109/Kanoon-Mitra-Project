@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12 px-6 md:px-16 border-t border-gray-800">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gray-900 text-white py-10 sm:py-12 px-4 sm:px-6 md:px-12 lg:px-16 border-t border-gray-800 font-poppins">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         
         {/* Left Brand Column */}
         <div className="col-span-1 md:col-span-2 flex flex-col items-start space-y-4">
@@ -12,7 +12,7 @@ const Footer = () => {
             <Link to="/">
               <img
                 className="w-14 h-14 object-contain rounded-full border border-gray-700"
-                src="/images/Gemini_Generated_Image_vtl42pvtl42pvtl4-removebg-preview.png"
+                src="/images/favicon.ico"
                 alt="Kanoon Mitra Logo"
                 onError={(e) => {
                   e.target.onerror = null;

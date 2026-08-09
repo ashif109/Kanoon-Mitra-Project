@@ -24,7 +24,7 @@ const Navbarr = () => {
           <Link to="/" onClick={handleLinkClick} className="flex items-center space-x-2.5 group">
             <img
               className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 object-contain rounded-full transition-transform duration-300 group-hover:scale-105"
-              src="/images/Gemini_Generated_Image_vtl42pvtl42pvtl4-removebg-preview.png"
+              src="/images/favicon.ico"
               alt="Kanoon Mitra Logo"
               onError={(e) => {
                 e.target.onerror = null;
@@ -116,7 +116,7 @@ const Navbarr = () => {
 
           {/* Action Buttons */}
           <div className="flex items-center space-x-3 pl-2">
-            <Link to="/LawyerPortal" onClick={handleLinkClick}>
+            <Link to="/lawyer-login" onClick={handleLinkClick}>
               <button className="bg-blue-700 hover:bg-blue-800 text-white font-medium px-4 py-2 rounded-xl shadow-sm hover:shadow transition-all text-sm cursor-pointer">
                 Lawyer Login
               </button>
@@ -143,7 +143,14 @@ const Navbarr = () => {
                       onClick={handleLinkClick}
                       className="block px-3 py-2 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-700 font-medium"
                     >
-                      📊 My Dashboard
+                      User Dashboard
+                    </Link>
+                    <Link
+                      to="/lawyer-dashboard"
+                      onClick={handleLinkClick}
+                      className="block px-3 py-2 rounded-lg text-blue-900 hover:bg-blue-50 font-bold"
+                    >
+                      Advocate Panel
                     </Link>
                     <button
                       onClick={() => {
@@ -152,13 +159,13 @@ const Navbarr = () => {
                       }}
                       className="w-full text-left px-3 py-2 rounded-lg text-red-600 hover:bg-red-50 font-medium cursor-pointer"
                     >
-                      🚪 Log Out
+                      Log Out
                     </button>
                   </div>
                 )}
               </div>
             ) : (
-              <Link to="/get-started" onClick={handleLinkClick}>
+              <Link to="/user-login" onClick={handleLinkClick}>
                 <button className="bg-orange-500 hover:bg-orange-600 text-slate-950 font-bold px-4 py-2 rounded-xl shadow-sm hover:shadow transition-all text-sm cursor-pointer">
                   Get Started
                 </button>
@@ -188,16 +195,53 @@ const Navbarr = () => {
             </Link>
 
             <div className="pt-3 border-t border-gray-100 flex flex-col space-y-2">
-              <Link to="/LawyerPortal" onClick={handleLinkClick}>
-                <button className="w-full bg-blue-700 hover:bg-blue-800 text-white font-medium py-2.5 rounded-xl transition text-sm">
-                  Lawyer Login
-                </button>
-              </Link>
-              <Link to="/get-started" onClick={handleLinkClick}>
-                <button className="w-full bg-orange-500 hover:bg-orange-600 text-slate-950 font-bold py-2.5 rounded-xl transition text-sm">
-                  Get Started
-                </button>
-              </Link>
+              {isLoggedIn ? (
+                <>
+                  <div className="flex items-center space-x-3 px-4 py-2 bg-gray-50 rounded-xl border border-gray-100 mb-1">
+                    <img
+                      src={user?.avatar || "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&auto=format&fit=crop&q=80"}
+                      alt={user?.name}
+                      className="w-8 h-8 rounded-full object-cover border border-blue-600"
+                    />
+                    <div>
+                      <p className="text-xs font-bold text-gray-900">{user?.name || "User"}</p>
+                      <p className="text-[10px] text-gray-500">{user?.email}</p>
+                    </div>
+                  </div>
+                  <Link to="/Dashboard" onClick={handleLinkClick}>
+                    <button className="w-full bg-blue-50 text-blue-700 font-bold py-2.5 rounded-xl transition text-sm text-left px-4">
+                      👤 User Dashboard
+                    </button>
+                  </Link>
+                  <Link to="/lawyer-dashboard" onClick={handleLinkClick}>
+                    <button className="w-full bg-blue-950 text-white font-bold py-2.5 rounded-xl transition text-sm text-left px-4">
+                      ⚖️ Advocate Panel
+                    </button>
+                  </Link>
+                  <button
+                    onClick={() => {
+                      logout();
+                      handleLinkClick();
+                    }}
+                    className="w-full bg-red-50 text-red-600 font-bold py-2.5 rounded-xl transition text-sm text-left px-4 cursor-pointer"
+                  >
+                    🚪 Log Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/lawyer-login" onClick={handleLinkClick}>
+                    <button className="w-full bg-blue-700 hover:bg-blue-800 text-white font-medium py-2.5 rounded-xl transition text-sm cursor-pointer shadow-sm">
+                      Lawyer Login
+                    </button>
+                  </Link>
+                  <Link to="/user-login" onClick={handleLinkClick}>
+                    <button className="w-full bg-orange-500 hover:bg-orange-600 text-slate-950 font-bold py-2.5 rounded-xl transition text-sm cursor-pointer shadow-sm">
+                      Get Started
+                    </button>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         </div>

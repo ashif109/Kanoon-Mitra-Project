@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { API_BASE_URL } from "../config/api";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,25 +12,35 @@ const Contact = () => {
   const [submitted, setSubmitted] = useState(false);
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+   
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (!formData.fullName || !formData.email || !formData.message) {
       alert("Please fill in your Full Name, Email Address, and Message.");
       return;
     }
+    let response = await fetch("${API_BASE_URL}/Contact", {
+      credentials:"include", 
+      method:"POST", 
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify(formData),
+    })
+    const result = await response.json();
+    if(result)  console.log("contact-form filled...")
     setSubmitted(true);
   };
 
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Banner */}
-      <div className="relative w-full min-h-[65vh] mt-16 sm:mt-20 overflow-hidden">
+      <div className="relative w-full min-h-[50vh] sm:min-h-[60vh] mt-16 sm:mt-20 overflow-hidden">
         <img
-          className="w-full h-110 object-cover"
+          className="w-full h-[400px] sm:h-[460px] object-cover"
           src="/images/julian-hochgesang-Dkn8-zPIbwo-unsplash.jpg"
           alt="Contact Kanoon Mitra"
           onError={(e) => {

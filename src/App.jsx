@@ -14,7 +14,9 @@ import Contact from './Pages/Contact'
 import AskLawyer from './Pages/AskLawyer'
 import KnowledgeHub from './Pages/KnowledgeHub'
 import LawyerPortal from "./Pages/LawyerPortal";
+import LawyerRegister from "./Pages/LawyerRegister";
 import Dashboard from './Pages/Dashboard'
+import LawyerDashboard from './Pages/LawyerDashboard'
 
 // Service Detail Pages
 import Firpage from './Pages/services/Firpage'
@@ -39,10 +41,21 @@ const App = () => {
             <Route path='/AskLawyer' element={<AskLawyer />} />
             <Route path='/KnowledgeHub' element={<KnowledgeHub />} />
             <Route path='/contact' element={<Contact />} />
+
+            {/* Dedicated Lawyer Auth & Panel Routes */}
             <Route path='/LawyerPortal' element={<LawyerPortal />} />
+            <Route path='/lawyer-login' element={<LawyerPortal />} />
+            <Route path='/lawyer-register' element={<LawyerRegister />} />
+            <Route path='/lawyer-signup' element={<LawyerRegister />} />
+            <Route path='/lawyer-dashboard' element={<LawyerDashboard />} />
+
+            {/* Dedicated User Auth & Panel Routes */}
             <Route path='/Dashboard' element={<Dashboard />} />
             <Route path='/get-started' element={<GetstartedAuth />} />
+            <Route path='/user-login' element={<GetstartedAuth />} />
             <Route path='/sign-in' element={<SignIn />} />
+            <Route path='/user-register' element={<SignIn />} />
+            <Route path='/user-signup' element={<SignIn />} />
 
             {/* Individual Service Detail Routes */}
             <Route path='/services/legal-consultation' element={<LegalConsultationPage />} />

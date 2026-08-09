@@ -1,34 +1,54 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config/api";
+// import { useNavigate } from "react-router-dom";
 
 const LegalConsultationPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
-  const [practiceArea, setPracticeArea] = useState("Civil Law");
+  const [title, settitle] = useState("Civil Law");
   const [consultationType, setConsultationType] = useState("Online Video Call");
   const [openFaq, setOpenFaq] = useState(null);
   const [bookingSuccess, setBookingSuccess] = useState(false);
 
   const [bookingForm, setBookingForm] = useState({
+    serviceType: "LEGAL_CONSULTATION",
     name: "",
     email: "",
     phone: "",
     date: "",
-    timeSlot: "",
-    issueDetails: "",
+    title,
+    question: "",
+    answer: "",
+    status: "pending",
+    lawyerId: null,
+    lawyerName: null,
+    consultationType,
+    urgency: "",
+    fee:"500"
+
   });
 
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setBookingForm((prev) => ({ ...prev, [name]: value }));
+
+    setBookingForm({ ...bookingForm, [e.target.name]: e.target.value });
   };
 
-  const handleBooking = (e) => {
+  const handleBooking = async (e) => {
     e.preventDefault();
     if (!bookingForm.name || !bookingForm.phone || !bookingForm.date) {
       alert("Please fill in your Name, Phone Number, and Preferred Date.");
       return;
     }
+    let response = await fetch(`${API_BASE_URL}/legal-consultation`, {
+      credentials: "include",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bookingForm),
+    })
+    const result = await response.json();
+    if (result) console.log("form submitted...")
     setBookingSuccess(true);
   };
 
@@ -48,7 +68,7 @@ const LegalConsultationPage = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* 1. Hero Banner */}
-      <header className="relative w-full min-h-[65vh] mt-16 sm:mt-20 overflow-hidden">
+      <header className="relative w-full min-h-[50vh] sm:min-h-[60vh] mt-16 sm:mt-20 overflow-hidden">
         <img
           className="absolute inset-0 w-full h-full object-cover"
           src="/images/lawyers-handshake-agreement.jpg"
@@ -121,12 +141,11 @@ const LegalConsultationPage = () => {
           {practiceAreas.map((area, idx) => (
             <div
               key={idx}
-              onClick={() => setPracticeArea(area.title)}
-              className={`bg-white rounded-xl border p-6 transition cursor-pointer ${
-                practiceArea === area.title
-                  ? "border-blue-600 ring-2 ring-blue-500/30 bg-blue-50/40 shadow-md"
-                  : "border-gray-200 hover:border-blue-300 hover:shadow-md"
-              }`}
+              onClick={() => settitle(area.title)}
+              className={`bg-white rounded-xl border p-6 transition cursor-pointer ${title === area.title
+                ? "border-blue-600 ring-2 ring-blue-500/30 bg-blue-50/40 shadow-md"
+                : "border-gray-200 hover:border-blue-300 hover:shadow-md"
+                }`}
             >
               <div className="text-4xl mb-3">{area.icon}</div>
               <h3 className="font-bold text-lg text-gray-900 mb-2">{area.title}</h3>
@@ -141,7 +160,7 @@ const LegalConsultationPage = () => {
         <div className="bg-white rounded-2xl border border-gray-200 shadow-xl p-6 sm:p-10">
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-bold text-orange-600 bg-orange-50 px-3 py-1 rounded-full border border-orange-200 uppercase">
-              Selected: {practiceArea}
+              Selected: {title}
             </span>
             <h2 className="text-3xl font-bold text-blue-950 mt-3">Book Your Legal Consultation</h2>
             <p className="text-gray-600 text-sm mt-2">Fill out your details to schedule a dedicated 30-minute consultation slot.</p>
@@ -152,7 +171,7 @@ const LegalConsultationPage = () => {
               <div className="text-5xl mb-3">✅</div>
               <h3 className="text-2xl font-bold text-green-900 mb-2">Consultation Booked Successfully!</h3>
               <p className="text-sm text-gray-700 mb-4">
-                Thank you, <strong>{bookingForm.name}</strong>. Our legal coordinator will contact you at <strong>{bookingForm.phone}</strong> for your <strong>{practiceArea}</strong> session on <strong>{bookingForm.date}</strong>.
+                Thank you, <strong>{bookingForm.name}</strong>. Our legal coordinator will contact you at <strong>{bookingForm.phone}</strong> for your <strong>{title}</strong> session on <strong>{bookingForm.date}</strong>.
               </p>
               <button
                 onClick={() => setBookingSuccess(false)}
@@ -167,16 +186,21 @@ const LegalConsultationPage = () => {
               <div>
                 <label className="block text-sm font-semibold text-gray-800 mb-2">Select Mode of Consultation</label>
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  {["Online Video Call", "Phone Call", "In-Office Visit"].map((mode) => (
+                  {["Online Video Call", "Phone Call", "In-Office Visit"].map((mode, idx) => (
                     <button
                       type="button"
-                      key={mode}
-                      onClick={() => setConsultationType(mode)}
-                      className={`p-4 rounded-xl border text-center font-medium text-sm transition ${
-                        consultationType === mode
-                          ? "border-blue-600 bg-blue-600 text-white shadow-md"
-                          : "border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100"
-                      }`}
+                      key={idx}
+                      onClick={() => {
+                        setConsultationType(mode);
+                        setBookingForm({
+                          ...bookingForm,
+                          consultationType: mode,
+                        });
+                      }}
+                      className={`p-4 rounded-xl border text-center font-medium text-sm transition ${consultationType === mode
+                        ? "border-blue-600 bg-blue-600 text-white shadow-md"
+                        : "border-gray-200 text-gray-700 bg-gray-50 hover:bg-gray-100"
+                        }`}
                     >
                       {mode}
                     </button>
@@ -240,26 +264,65 @@ const LegalConsultationPage = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">Brief Description of Legal Issue</label>
                 <textarea
                   rows="4"
-                  name="issueDetails"
-                  value={bookingForm.issueDetails}
+                  name="question"
+                  value={bookingForm.question}
                   onChange={handleInputChange}
                   placeholder="Summarize your issue so the lawyer can review before the session..."
                   className="w-full border border-gray-300 rounded-lg p-3 text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
                 ></textarea>
               </div>
+              <div>
+                <p className="block text-sm font-medium text-gray-700 mb-2">Urgency Level</p>
+                <div className="flex space-x-6">
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="urgency"
+                      value="low"
+                      checked={bookingForm.urgency === "low"}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    <span className="text-green-600 font-semibold text-sm">Low</span>
+                  </label>
 
-              <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex justify-between items-center text-sm">
-                <div>
-                  <span className="text-gray-600 block">Total Payable Fee:</span>
-                  <span className="text-xl font-bold text-blue-900">₹500 <span className="text-xs text-gray-500 font-normal">(Inclusive of all taxes)</span></span>
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="urgency"
+                      value="medium"
+                      checked={bookingForm.urgency === "medium"}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    <span className="text-amber-600 font-semibold text-sm">Medium</span>
+                  </label>
+
+                  <label className="flex items-center cursor-pointer">
+                    <input
+                      type="radio"
+                      name="urgency"
+                      value="high"
+                      checked={bookingForm.urgency === "high"}
+                      onChange={handleInputChange}
+                      className="mr-2"
+                    />
+                    <span className="text-red-600 font-semibold text-sm">High</span>
+                  </label>
                 </div>
-                <button
-                  type="submit"
-                  className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-lg shadow-md transition"
-                >
-                  Proceed & Pay ₹500
-                </button>
-              </div>
+                </div>
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 flex justify-between items-center text-sm">
+                  <div>
+                    <span className="text-gray-600 block">Total Payable Fee:</span>
+                    <span className="text-xl font-bold text-blue-900">₹500 <span className="text-xs text-gray-500 font-normal">(Inclusive of all taxes)</span></span>
+                  </div>
+                  <button
+                    type="submit"
+                    className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-lg shadow-md transition"
+                  >
+                    Proceed & Pay ₹500
+                  </button>
+                </div>
             </form>
           )}
         </div>

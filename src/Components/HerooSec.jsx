@@ -4,41 +4,45 @@ import Footer from "./Footer";
 const HerooSec = () => {
   return (
     <div>
-      <div className="relative w-full min-h-[70vh] mt-16 sm:mt-20">
+      <div className="relative w-full min-h-[60vh] sm:min-h-[70vh] mt-16 sm:mt-20 overflow-hidden">
         <img
-          className="w-full h-140 object-cover"
-          src="/src/assets/giammarco-boscaro-zeH-ljawHtg-unsplash.jpg"
-          alt="img"
+          className="w-full h-[480px] sm:h-[540px] md:h-[600px] object-cover"
+          src="/images/giammarco-boscaro-zeH-ljawHtg-unsplash.jpg"
+          alt="Kanoon Mitra Hero"
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400";
+          }}
         />
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/30"></div>
 
-        <div className="font-poppins absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 sm:px-8">
+        <div className="font-poppins absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 sm:px-8 max-w-4xl mx-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-3 drop-shadow-lg">
-            Justice Made Simple
+            Justice Made <span className="text-orange-400">Simple</span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl max-w-xl drop-shadow-md">
+          <p className="text-base sm:text-lg md:text-xl max-w-xl drop-shadow-md text-gray-200">
             Your Digital Legal Friend. Access legal information, connect with
             lawyers, and understand your rights with ease.
           </p>
 
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6 w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-6 w-full max-w-lg">
             <input
-              className="bg-black/70 w-full sm:w-[400px] border border-amber-50 rounded-lg p-2 text-white placeholder-gray-300 text-sm sm:text-base"
+              className="bg-black/70 w-full border border-amber-50 rounded-xl p-3 text-white placeholder-gray-300 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-red-500"
               type="text"
               placeholder="Search for legal help, documents or ask a question..."
             />
-            <button className="bg-red-700 hover:shadow-red-400/50 hover:shadow-lg transition-all duration-300 px-5 py-2 rounded-lg text-white text-lg">
+            <button className="w-full sm:w-auto bg-red-700 hover:bg-red-800 hover:shadow-red-400/50 hover:shadow-lg transition-all duration-300 px-6 py-3 rounded-xl text-white font-bold text-base cursor-pointer">
               Search
             </button>
           </div>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-            <button className="hover:shadow-indigo-400/50 hover:shadow-lg transition-all duration-300 border border-amber-50 rounded-lg bg-white px-5 py-2 text-blue-700 font-bold">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
+            <button className="hover:shadow-indigo-400/50 hover:shadow-lg transition-all duration-300 border border-amber-50 rounded-xl bg-white px-6 py-2.5 text-blue-700 font-bold text-sm sm:text-base cursor-pointer">
               Ask a Lawyer
             </button>
-            <button className="hover:shadow-indigo-400/50 hover:shadow-lg transition-all duration-300 border border-amber-50 rounded-lg bg-black/80 px-5 py-2 text-white font-bold">
+            <button className="hover:shadow-indigo-400/50 hover:shadow-lg transition-all duration-300 border border-amber-50 rounded-xl bg-black/80 px-6 py-2.5 text-white font-bold text-sm sm:text-base cursor-pointer">
               Explore Services
             </button>
           </div>

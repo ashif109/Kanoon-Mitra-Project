@@ -45,21 +45,21 @@ const FloatingAiAssistant = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-40">
+    <div className="fixed bottom-3 right-3 sm:bottom-6 sm:right-6 z-40">
       {/* Floating Toggle Button */}
       {!isOpen && (
         <button
           onClick={() => setIsOpen(true)}
-          className="flex items-center gap-2.5 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-cyan-400 p-4 font-semibold text-white shadow-2xl shadow-indigo-500/40 transition hover:scale-105 active:scale-95 cursor-pointer"
+          className="flex items-center gap-2 rounded-full bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-500 p-3.5 sm:p-4 font-semibold text-white shadow-2xl shadow-indigo-500/40 transition hover:scale-105 active:scale-95 cursor-pointer"
         >
-          <span className="text-2xl">🤖</span>
+          <span className="text-xl sm:text-2xl">🤖</span>
           <span className="hidden sm:inline-block pr-1 text-sm font-bold">Ask AI Legal Assistant</span>
         </button>
       )}
 
       {/* Chat Window Modal */}
       {isOpen && (
-        <div className="w-[340px] sm:w-[380px] h-[480px] rounded-[2rem] border border-white/10 bg-slate-950/95 text-slate-100 shadow-2xl shadow-slate-950/80 backdrop-blur-2xl flex flex-col overflow-hidden animate-slide-up">
+        <div className="w-[calc(100vw-1.5rem)] max-w-[380px] h-[480px] sm:h-[500px] rounded-[2rem] border border-white/10 bg-slate-950/95 text-slate-100 shadow-2xl shadow-slate-950/80 backdrop-blur-2xl flex flex-col overflow-hidden animate-slide-up">
           {/* Header */}
           <div className="flex items-center justify-between border-b border-white/10 bg-white/5 px-5 py-4">
             <div className="flex items-center gap-3">

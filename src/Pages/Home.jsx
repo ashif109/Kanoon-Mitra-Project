@@ -69,60 +69,60 @@ const Home = () => {
     <div className="bg-gray-50 min-h-screen">
 
       {/* Hero Section */}
-      <div className="relative w-full min-h-[75vh] mt-16 sm:mt-20 overflow-hidden">
+      <div className="relative w-full min-h-[60vh] sm:min-h-[75vh] mt-16 sm:mt-20 overflow-hidden">
         <img
-          className="w-full h-full min-h-[500px] object-cover"
+          className="w-full h-[520px] sm:h-[600px] object-cover"
           src="/images/giammarco-boscaro-zeH-ljawHtg-unsplash.jpg"
           alt="Kanoon Mitra Hero"
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200";
+            e.target.src = "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400";
           }}
         />
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/65 to-black/40" />
 
-        <div className="font-poppins absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 sm:px-8 max-w-5xl mx-auto">
-          <span className="bg-red-700/90 border border-red-400 text-red-100 text-xs px-4 py-1.5 rounded-full uppercase tracking-wider font-bold mb-4 shadow-sm">
+        <div className="font-poppins absolute inset-0 flex flex-col items-center justify-center text-center text-white px-4 sm:px-8 max-w-5xl mx-auto py-8">
+          <span className="bg-red-700/90 border border-red-400 text-red-100 text-[11px] sm:text-xs px-3.5 py-1.5 rounded-full uppercase tracking-wider font-bold mb-3 shadow-sm">
             Digital Legal Assistance
           </span>
 
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-3 drop-shadow-lg tracking-tight leading-tight">
             Justice Made <span className="text-orange-400">Simple</span>
           </h1>
 
-          <p className="text-base sm:text-lg md:text-xl max-w-2xl drop-shadow-md text-gray-200 leading-relaxed">
+          <p className="text-sm sm:text-lg md:text-xl max-w-2xl drop-shadow-md text-gray-200 leading-relaxed">
             Your Digital Legal Friend. Access legal information, connect with lawyers, and understand your rights with ease.
           </p>
 
           {/* Search Form */}
-          <form onSubmit={handleSearch} className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-8 w-full max-w-xl">
+          <form onSubmit={handleSearch} className="flex flex-col sm:flex-row justify-center items-center gap-3 mt-6 sm:mt-8 w-full max-w-xl">
             <input
-              className="bg-black/70 w-full border border-amber-100/30 rounded-xl px-4 py-3.5 text-white placeholder-gray-300 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-red-500 backdrop-blur-sm shadow-inner"
+              className="bg-black/70 w-full border border-amber-100/30 rounded-xl px-4 py-3 text-white placeholder-gray-300 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-red-500 backdrop-blur-sm shadow-inner"
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search for FIR, RTI, Cyber fraud, or ask a question..."
+              placeholder="Search FIR, RTI, Cyber fraud, or ask a question..."
             />
             <button
               type="submit"
-              className="bg-red-700 hover:bg-red-800 hover:shadow-red-500/50 hover:shadow-lg transition-all duration-300 px-7 py-3.5 rounded-xl text-white font-bold text-base whitespace-nowrap w-full sm:w-auto cursor-pointer"
+              className="bg-red-700 hover:bg-red-800 hover:shadow-red-500/50 hover:shadow-lg transition-all duration-300 px-7 py-3 rounded-xl text-white font-bold text-sm sm:text-base whitespace-nowrap w-full sm:w-auto cursor-pointer"
             >
               Search
             </button>
           </form>
 
           {/* Hero Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mt-7">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-6">
             <button
               onClick={() => navigate("/AskLawyer")}
-              className="hover:shadow-indigo-400/30 hover:shadow-xl transition-all duration-300 border border-amber-50 rounded-xl bg-white px-7 py-3 text-blue-800 font-extrabold text-sm sm:text-base cursor-pointer"
+              className="hover:shadow-indigo-400/30 hover:shadow-xl transition-all duration-300 border border-amber-50 rounded-xl bg-white px-6 py-2.5 sm:px-7 sm:py-3 text-blue-800 font-extrabold text-xs sm:text-sm md:text-base cursor-pointer"
             >
               Ask a Lawyer
             </button>
             <button
               onClick={() => navigate("/services")}
-              className="hover:shadow-black/50 hover:shadow-xl transition-all duration-300 border border-amber-50 rounded-xl bg-black/80 hover:bg-black px-7 py-3 text-white font-extrabold text-sm sm:text-base cursor-pointer"
+              className="hover:shadow-black/50 hover:shadow-xl transition-all duration-300 border border-amber-50 rounded-xl bg-black/80 hover:bg-black px-6 py-2.5 sm:px-7 sm:py-3 text-white font-extrabold text-xs sm:text-sm md:text-base cursor-pointer"
             >
               Explore Services
             </button>

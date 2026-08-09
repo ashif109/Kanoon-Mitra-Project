@@ -22,17 +22,14 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     const defaultUser = {
-      name: userData?.fullName || userData?.identifier?.split("@")[0] || "Rahul Sharma",
-      email: userData?.email || userData?.identifier || "rahul.sharma@example.com",
-      mobile: userData?.mobile || "+91 98765 43210",
+      name: userData?.fullName || userData?.name || userData?.identifier?.split("@")[0] || "Ashif Ansari",
+      email: userData?.email || userData?.identifier || "ashifansari04704@gmail.com",
+      mobile: userData?.mobile || userData?.phone || "+91 98765 43210",
       accountType: userData?.accountType || "Citizen / Client",
-      state: userData?.state || "Maharashtra",
-      city: userData?.city || "Mumbai",
-      preferredLanguage: userData?.preferredLanguage || "Both",
-      age: userData?.age || "28",
-      gender: userData?.gender || "Male",
-      occupation: userData?.occupation || "Software Professional",
+      state: userData?.state || "Delhi",
+      city: userData?.city || "New Delhi",
       avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      ...userData,
     };
     setUser(defaultUser);
     return defaultUser;
@@ -40,17 +37,14 @@ export const AuthProvider = ({ children }) => {
 
   const signup = (userData) => {
     const newUser = {
-      name: userData.fullName || "New User",
-      email: userData.email,
-      mobile: userData.mobile,
-      accountType: userData.accountType || "Citizen / Client",
-      state: userData.state || "Delhi",
-      city: userData.city || "New Delhi",
-      preferredLanguage: userData.preferredLanguage || "Both",
-      age: userData.age || "",
-      gender: userData.gender || "",
-      occupation: userData.occupation || "",
+      name: userData?.fullName || userData?.name || "New User",
+      email: userData?.email || "",
+      mobile: userData?.mobile || userData?.phone || "",
+      accountType: userData?.accountType || "Citizen / Client",
+      state: userData?.state || "Delhi",
+      city: userData?.city || "New Delhi",
       avatar: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80",
+      ...userData,
     };
     setUser(newUser);
     return newUser;

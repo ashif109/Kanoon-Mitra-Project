@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const LegalDocsPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [activeCategory, setActiveCategory] = useState("All");
   const [downloadSuccess, setDownloadSuccess] = useState(null);
@@ -14,6 +14,7 @@ const LegalDocsPage = () => {
       category: "Property",
       format: "PDF & DOCX",
       downloads: "14.2k downloads",
+      link:"https://assets1.cleartax-cdn.com/cleartax/images/1655708276_rentalagreementsampleandallyouneedtoknow.pdf",
       desc: "Standard 11-month lease agreement with security deposit, notice period, and maintenance clauses.",
     },
     {
@@ -22,6 +23,7 @@ const LegalDocsPage = () => {
       category: "Property",
       format: "DOCX",
       downloads: "9.8k downloads",
+      link:"https://img.indiafilings.com/learn/wp-content/uploads/2024/03/General-Power-of-Attorney-Format-Refdocx.pdf",
       desc: "Draft template to authorize representation for property handling, utility sign-offs, and bank works.",
     },
     {
@@ -30,14 +32,16 @@ const LegalDocsPage = () => {
       category: "Personal",
       format: "PDF",
       downloads: "18.5k downloads",
+      link:"https://cdnbbsr.s3waas.gov.in/s3ea6b2efbdd4255a9f1b3bbc6399b58f4/uploads/2023/10/202412121118571245.pdf",
       desc: "Legally accepted non-judicial stamp affidavit for official name correction or change.",
     },
     {
       id: 4,
       title: "Non-Disclosure Agreement (NDA)",
       category: "Business",
-      format: "DOCX",
+      format: "PDF",
       downloads: "11.1k downloads",
+      link:"https://bidplus.gem.gov.in/bidding/bid/documentdownload/6361456/1714631710.pdf",
       desc: "Bilateral confidential information protection agreement for startups, employees, and freelancers.",
     },
     {
@@ -46,6 +50,7 @@ const LegalDocsPage = () => {
       category: "Notices",
       format: "PDF & DOCX",
       downloads: "7.4k downloads",
+      link:"https://lawrato.com/experts/legaldocuments/Legal-Notice-for-Non-Payment-of-Invoice-LawRato.docx",
       desc: "Formal advocate draft format to issue 15-day notice before initiating civil recovery proceedings.",
     },
     {
@@ -54,6 +59,7 @@ const LegalDocsPage = () => {
       category: "Personal",
       format: "DOCX",
       downloads: "5.3k downloads",
+      link:"https://lawrato.com/experts/legaldocuments/Simple-will-LawRato3.docx",
       desc: "Clean draft for bequeathing movable and immovable assets to heirs with executor clauses.",
     },
   ];
@@ -161,12 +167,13 @@ const LegalDocsPage = () => {
 
               <div className="border-t pt-4 flex items-center justify-between">
                 <span className="text-xs text-gray-400 font-medium">{doc.downloads}</span>
+                <a href={doc.link}>
                 <button
                   onClick={() => handleDownload(doc)}
                   className="bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg text-xs font-bold transition shadow flex items-center gap-1.5"
                 >
                   Download Free <span>⬇</span>
-                </button>
+                </button></a>
               </div>
             </div>
           ))}

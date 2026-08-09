@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../config/api";
+// import { useNavigate } from "react-router-dom";
 
 const CyberComplaintPage = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [crimeCategory, setCrimeCategory] = useState("Online Banking Fraud / UPI Fraud");
   const [complaintSuccess, setComplaintSuccess] = useState(false);
 
   const [cyberForm, setCyberForm] = useState({
+      serviceType: "CYBER-COMPLAINT",
     victimName: "",
     phone: "",
     transactionId: "",
@@ -18,22 +20,32 @@ const CyberComplaintPage = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setCyberForm((prev) => ({ ...prev, [name]: value }));
+    setCyberForm({ ...cyberForm, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (!cyberForm.victimName || !cyberForm.phone || !cyberForm.incidentSummary) {
       alert("Please fill in Victim Name, Phone Number, and Incident Summary.");
       return;
     }
+    let response = await fetch(`${API_BASE_URL}/services/rti-filing`, {
+      credentials:"include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method:"POST",
+      body:JSON.stringify(cyberForm)
+    })
+    const result= await response.json();
+    if(result) console.log("form submitted...");
     setComplaintSuccess(true);
   };
 
   return (
     <div className="bg-gray-50 min-h-screen">
       {/* Hero Banner */}
-      <header className="relative w-full min-h-[65vh] mt-16 sm:mt-20 overflow-hidden">
+      <header className="relative w-full min-h-[50vh] sm:min-h-[60vh] mt-16 sm:mt-20 overflow-hidden">
         <img
           className="absolute inset-0 w-full h-full object-cover"
           src="/images/giammarco-boscaro-zeH-ljawHtg-unsplash.jpg"
