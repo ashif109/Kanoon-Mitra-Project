@@ -1,16 +1,38 @@
-# React + Vite
+# ⚖️ Kanoon Mitra
+### A Full-Stack Legal Information & Assistance Platform
+Kanoon Mitra is an end-to-end web application designed to make legal information more accessible, structured, and easier to navigate.
+The project was built from the ground up with a modern React frontend and a Node.js/Express backend, with a focus on clean API architecture, responsive UI, maintainable code, and real-world deployment.
+---
+## 🌐 Live Application
+🚀 **Live Demo:** https://kanoon-mitra-project.vercel.app/
+📂 **Source Code:** https://github.com/ashif109/Kanoon-Mitra-Project
+---
+## ✨ Why Kanoon Mitra?
+Legal information can often be difficult to find, understand, and navigate.
+Kanoon Mitra aims to provide a cleaner digital experience for accessing structured legal information through an intuitive web interface.
+The project focuses on:
+- 📚 Structured legal information
+- 🔎 Easy navigation and discovery
+- 📱 Responsive user experience
+- ⚡ Fast and modular frontend
+- 🔐 Secure backend architecture
+- 🔄 RESTful API communication
+- 🗄️ Persistent data management
+- 🚀 Production deployment
+---
+# 🚀 Key Features
+### 🏛️ Legal Information Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Provides structured access to legal information through a clean and responsive interface.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## React Compiler
-
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### ⚡ Full-Stac Architecture
+The application is built as a complete frontend + backend system rather than a static website.
+```text
+React Frontend
+      │
+      │ HTTP / REST APIs
+      ▼
+Node.js + Express Backend
+      │
+      ▼
+MongoDB Database
