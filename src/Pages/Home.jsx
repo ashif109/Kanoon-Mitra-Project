@@ -139,10 +139,10 @@ const Home = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { title: "e-FIR Guidance", desc: "Identify BNS sections & draft FIR notice", icon: "🚔", path: "/services/fir-guidance" },
-            { title: "RTI Applications", desc: "Draft Right to Information queries", icon: "📋", path: "/services/rti-filing" },
-            { title: "Free Legal Docs", desc: "Rent agreements, NDAs & affidavits", icon: "📄", path: "/services/free-legal-docs" },
-            { title: "Cyber Fraud Guide", desc: "Emergency steps & helpline 1930", icon: "🛡️", path: "/services/cyber-complaint" },
+            { title: "e-FIR Guidance", desc: "Identify BNS sections & draft FIR notice", path: "/services/fir-guidance" },
+            { title: "RTI Applications", desc: "Draft Right to Information queries", path: "/services/rti-filing" },
+            { title: "Free Legal Docs", desc: "Rent agreements, NDAs & affidavits", path: "/services/free-legal-docs" },
+            { title: "Cyber Fraud Guide", desc: "Emergency steps & helpline 1930", path: "/services/cyber-complaint" },
           ].map((s, i) => (
             <Link
               key={i}
@@ -150,7 +150,7 @@ const Home = () => {
               className="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
             >
               <div>
-                <span className="text-3xl">{s.icon}</span>
+              
                 <h3 className="text-lg font-bold text-gray-900 mt-3 group-hover:text-blue-700 transition">{s.title}</h3>
                 <p className="text-xs text-gray-600 mt-1 leading-relaxed">{s.desc}</p>
               </div>
